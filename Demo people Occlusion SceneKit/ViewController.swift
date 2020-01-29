@@ -34,7 +34,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             return
         }
         config.frameSemantics = .personSegmentationWithDepth
-        
+        //config.frameSemantics.insert(.personSegmentationWithDepth)
+        sceneView.session.run(config)
     }
     
     override func viewWillAppear(_ animated: Bool) {
