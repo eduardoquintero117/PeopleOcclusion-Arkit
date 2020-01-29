@@ -28,6 +28,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set the scene to the view
         sceneView.scene = scene
+        
+        guard let config =  sceneView.session.configuration as? ARWorldTrackingConfiguration, ARWorldTrackingConfiguration.supportsFrameSemantics(.personSegmentationWithDepth) else {
+    
+            return
+        }
+        config.frameSemantics = .personSegmentationWithDepth
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
